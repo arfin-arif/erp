@@ -1,0 +1,20 @@
+.wallet-div {
+    width: 732px;
+    height: 184px;
+    background: #3A3A5A;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.wallet-card {
+    width: 204px;
+    height: 125px;
+    box-shadow: 0px 2.87095px 44.4997px rgba(39, 52, 125, 0.05);
+    border-radius: 11.4838px;
+}
+
+.side-div {
+
+    width: 286px;
+    height: 149px;
+}
