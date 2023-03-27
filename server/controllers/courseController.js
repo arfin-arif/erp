@@ -2,11 +2,12 @@ const Course = require('../models/courseModel');
 
 module.exports.postCourses = async (req, res, next) => {
     try {
-        const { courseCode, courseTitle, creditHours } = req.body;
+        const { courseCode, courseTitle, creditHours, semester } = req.body;
         const course = new Course({
             courseCode,
             courseTitle,
-            creditHours
+            creditHours,
+            semester
         });
         console.log(course);
         await course.save();
@@ -45,6 +46,17 @@ module.exports.getRangeOfCourses = async (req, res, next) => {
         res.status(500).send('An error occurred while retrieving the courses');
     }
 }
+module.exports.getCoursePerSemester = async (req, res) => {
+    try {
+        const semester = req.params.semester;
+        const courses = await Course.find({ semester: semester });
+        res.json(courses);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+}
+
 module.exports.deleteCourse = async (req, res, next) => {
 
     try {

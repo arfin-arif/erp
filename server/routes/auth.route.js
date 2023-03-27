@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 router.post("/login", login)
 router.post("/register", register);
-router.get("/all-users/:id", getAllUsers);
+// router.get("/all-users/:id", getAllUsers);
 router.get("/logout/:id", logOut);
 
 module.exports = router;

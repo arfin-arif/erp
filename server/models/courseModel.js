@@ -15,7 +15,11 @@ const courseSchema = new mongoose.Schema({
     creditHours: {
         type: String,
         required: true
-    }
+    },
+    semester: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = mongoose.model('Course', courseSchema);

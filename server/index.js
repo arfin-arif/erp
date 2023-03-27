@@ -4,13 +4,15 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.route");
 const usersRoutes = require("./routes/users.route");
 const errorHandler = require("./middleware/errorHandler");
-const userModel = require("./models/userModel");
 const courseRoutes = require("./routes/course.route");
+const semesterRegRouter = require("./routes/courseRegistation.route");
 const app = express();
 require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+
+
 const uri = process.env.MONGO_URL
 mongoose.connect(uri, {
     useNewUrlParser: true,
@@ -26,6 +28,7 @@ mongoose.connect(uri, {
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/course", courseRoutes);
+app.use("/api/v1/registration", semesterRegRouter);
 
 
 
